@@ -120,7 +120,7 @@
                                 <connections>
                                     <outlet property="imgCandidato" destination="5VC-dK-q0T" id="3xu-rb-lgq"/>
                                     <outlet property="labelNome" destination="w47-yi-kcv" id="hbr-Xg-nX5"/>
-                                    <segue destination="5Pf-cV-d2O" kind="push" id="sMJ-Eg-THW"/>
+                                    <segue destination="5Pf-cV-d2O" kind="push" identifier="segueCandidatos" id="sMJ-Eg-THW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -161,6 +161,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Eyd-tA-yRH"/>
+                    <connections>
+                        <outlet property="imgCandidato" destination="k0D-xX-3s2" id="Mfw-PX-HFd"/>
+                        <outlet property="labelNome" destination="p4H-vG-knl" id="30q-Ez-BvE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKe-6X-vd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,8 @@
 
 #import "ColaTableViewController.h"
 #import "HttpConnection.h"
+#import "ColaTableViewCell.h"
+#import "CandidatoViewController.h"
 
 @interface ColaTableViewController ()
 
@@ -32,7 +34,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
 }
 
@@ -96,13 +98,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    NSDictionary *cargo = [_cargos objectAtIndex:indexPath.row];
+    //NSLog(@"%@", [NSNumber numberWithInteger:indexPath.row]);
+    NSDictionary *cargo = [_cargos objectAtIndex:indexPath.section];
+    NSArray *candidatos = [cargo objectForKey:@"candidatos"];
+    ColaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if ([candidatos count] == 0) {
+        
+        UIImage* imageD = [UIImage imageNamed:@"profile_empty.png"];
+        [cell.imgCandidato setImage:imageD];
+        cell.labelNome.text = @"Selecione o candidato";
+        
+    } else {
+        
+        NSDictionary *candidato = [candidatos objectAtIndex:indexPath.row];
+        cell.cargoId = [cargo objectForKey:@"id_cargo"];
+        cell.labelNome.text = [candidato objectForKey:@"nome"];
+        [cell.imgCandidato setImageWithURL:[candidato objectForKey:@"foto"] placeholderImage:[UIImage imageNamed:@"ic_avatar"]];
+        
+    }
     
-    cell.textLabel.text = [cargo objectForKey:@"nome_cargo"];
+    cell.tag = [[cargo objectForKey:@"id_cargo"] intValue];
+    cell.imgCandidato.layer.cornerRadius = cell.imgCandidato.frame.size.width / 2;
+    cell.imgCandidato.clipsToBounds = YES;
     
     return cell;
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -116,27 +137,52 @@
     return 35;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    NSMutableDictionary *cargo = [_cargos objectAtIndex:indexPath.section];
+    NSMutableArray *candidatos = [cargo objectForKey:@"candidatos"];
+    if([candidatos count] == 0) {
+        return NO;
+    }
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        NSMutableDictionary *cargo = [_cargos objectAtIndex:indexPath.section];
+        NSMutableArray *candidatos = [cargo objectForKey:@"candidatos"];
+        NSMutableDictionary *candidato = [candidatos objectAtIndex:indexPath.row];
+        
+        HttpConnection *httpConnection = [[HttpConnection alloc] initWithView:self.view];
+        NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@", URL_REMOVE, _colaId, [(NSDictionary*)[cargo objectForKey:@"_id"] objectForKey:@"$oid"], [candidato objectForKey:@"id"]];
+        [httpConnection callGetMethod:url options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+         {
+             NSLog(@"sucesso");
+             
+             [candidatos removeObjectAtIndex:indexPath.row];
+             if([candidatos count] == 0) {
+                 [tableView reloadData];
+             } else {
+                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+             }
+             
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+         {
+             NSLog(@"Error: %@", [error localizedDescription]);
+         }];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -154,15 +200,21 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"segueCandidatos"]) {
+        UITableViewCell *cell = (UITableViewCell*)sender;
+        CandidatoViewController *cvc = (CandidatoViewController*) segue.destinationViewController;
+        cvc.estado = _estado;
+        cvc.colaId = _colaId;
+        cvc.cargoId = cell.tag;
+    }
+    
 }
-*/
+
 
 @end
