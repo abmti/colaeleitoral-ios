@@ -30,22 +30,13 @@
     
     _labelMinibio.numberOfLines = 0;
     _labelMinibio.text = [_candidato objectForKey:@"miniBio"];
-    //CGFloat heightLabel = [self getRectText:_labelMinibio.text];
-    CGFloat heightLabel = 50;
+    CGFloat heightLabel = [self getRectText:_labelMinibio.text];
     CGRect frameLabel = _labelMinibio.frame;
-    frameLabel.origin = CGPointMake(10, 6);
+    frameLabel.origin = CGPointMake(10, 30);
     frameLabel.size = CGSizeMake(300, heightLabel);
     _labelMinibio.frame = frameLabel;
     
     [self setTitle:[_candidato objectForKey:@"apelido"]];
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    
     
 }
 
