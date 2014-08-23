@@ -48,8 +48,23 @@
     self.imgCandidato.layer.cornerRadius = self.imgCandidato.frame.size.width / 2;
     self.imgCandidato.clipsToBounds = YES;
     
-    [self carregarCandidatos];
     
+    HttpConnection *httpConnection = [[HttpConnection alloc] initWithView:self.view];
+    [httpConnection callGetMethod:URL_PARTIDOS options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"sucesso");
+         
+         _partidos = responseObject;
+         [_partidoField setItemListDictionary:_partidos optsKey:@"partidoId" optsLabel:@"sigla" optsSelecione:YES];
+         
+         _partidoField.delegate = self;
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"Error: %@", [error localizedDescription]);
+     }];
+    
+    [self carregarCandidatos];
     
 }
 
@@ -118,8 +133,13 @@
     
     NSDictionary *candidato = [_candidatos objectAtIndex:index];
     
+    NSString *partido = @"n";
+    if (_partidoField.text.length > 0) {
+        partido = _partidoField.textKey;
+    }
+    
     HttpConnection *httpConnection = [[HttpConnection alloc] initWithView:self.view];
-    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@", URL_AVALIA, [candidato objectForKey:@"id"], _colaId, [NSNumber numberWithInteger:_cargoId], _estado, @"y"];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@", URL_AVALIA, [candidato objectForKey:@"id"], _colaId, [NSNumber numberWithInteger:_cargoId], _estado, @"y", partido];
     [httpConnection callGetMethod:url options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSLog(@"sucesso");
@@ -141,6 +161,20 @@
     } else {
         [self exibirCandidato];
     }
+}
+
+-(void)doneAction:(UIBarButtonItem*)barButton
+{
+    NSLog(@"Done..");
+}
+
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    //textField.text = @"";
+    return YES;
 }
 
 @end

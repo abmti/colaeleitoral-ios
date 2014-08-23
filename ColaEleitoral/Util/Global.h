@@ -13,5 +13,6 @@
 #define URL_CANDIDATOS [NSString stringWithFormat:@"%@%@",URL_BASE, @"/candidatos"]
 #define URL_AVALIA [NSString stringWithFormat:@"%@%@",URL_BASE, @"/avalia"]
 #define URL_REMOVE [NSString stringWithFormat:@"%@%@",URL_BASE, @"/remove"]
+#define URL_PARTIDOS [NSString stringWithFormat:@"%@%@",URL_BASE, @"/partidos"]
 
 #endif

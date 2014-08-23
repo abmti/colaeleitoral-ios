@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "AlertsUtil.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "IQKeyboardManager.h"
+#import "IQDropDownTextField.h"
+#import "IQUIView+IQKeyboardToolbar.h"
 
-@interface CandidatoViewController : UIViewController
+@interface CandidatoViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) AlertsUtil * alert;
+
+@property NSMutableArray *partidos;
+@property (weak, nonatomic) IBOutlet IQDropDownTextField *partidoField;
 
 @property NSString *colaId;
 @property NSString *estado;
