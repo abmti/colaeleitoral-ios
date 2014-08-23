@@ -8,6 +8,7 @@
 
 #import "CandidatoViewController.h"
 #import "HttpConnection.h"
+#import "InfoViewController.h"
 
 @interface CandidatoViewController () {
     NSInteger index;
@@ -73,7 +74,11 @@
 - (void) exibirCandidato
 {
     NSDictionary *candidato = [_candidatos objectAtIndex:index];
-    _labelNome.text = [candidato objectForKey:@"apelido"];
+    _labelApelido.text = [candidato objectForKey:@"apelido"];
+    _labelNome.text = [candidato objectForKey:@"nome"];
+    _labelCargo.text = [candidato objectForKey:@"cargo"];
+    _labelPartido.text = [candidato objectForKey:@"partido"];
+    
     [self.imgCandidato setImageWithURL:[candidato objectForKey:@"foto"] placeholderImage:[UIImage imageNamed:@"ic_avatar"]];
 }
 
@@ -84,16 +89,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"segueInfo"]) {
+        InfoViewController *ivc = (InfoViewController*) segue.destinationViewController;
+        NSDictionary *candidato = [_candidatos objectAtIndex:index];
+        ivc.candidato = candidato;
+    }
 }
-*/
+
 
 
 -(void)swipeleft:(UISwipeGestureRecognizer*)gestureRecognizer

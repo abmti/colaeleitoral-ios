@@ -17,7 +17,10 @@
 @property (strong, nonatomic) NSMutableArray *candidatos;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgCandidato;
+@property (weak, nonatomic) IBOutlet UILabel *labelApelido;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;
+@property (weak, nonatomic) IBOutlet UILabel *labelCargo;
+@property (weak, nonatomic) IBOutlet UILabel *labelPartido;
 
 
 @end

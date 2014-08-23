@@ -107,13 +107,17 @@
         
         UIImage* imageD = [UIImage imageNamed:@"profile_empty.png"];
         [cell.imgCandidato setImage:imageD];
-        cell.labelNome.text = @"Selecione o candidato";
+        cell.labelNome.text = @"";
+        cell.labelNumero.text = @"Selecione o candidato";
+        cell.labelPartido.text = @"";
         
     } else {
         
         NSDictionary *candidato = [candidatos objectAtIndex:indexPath.row];
         cell.cargoId = [cargo objectForKey:@"id_cargo"];
-        cell.labelNome.text = [candidato objectForKey:@"nome"];
+        cell.labelNome.text = [candidato objectForKey:@"apelido"];
+        cell.labelNumero.text = [candidato objectForKey:@"numero"];
+        cell.labelPartido.text = [candidato objectForKey:@"partido"];
         [cell.imgCandidato setImageWithURL:[candidato objectForKey:@"foto"] placeholderImage:[UIImage imageNamed:@"ic_avatar"]];
         
     }

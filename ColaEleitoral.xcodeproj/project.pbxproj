@@ -31,6 +31,9 @@
 		E4793C1019A8D3FF001BE0C9 /* CandidatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4793C0F19A8D3FF001BE0C9 /* CandidatoViewController.m */; };
 		E4AB74F319A8E49D00960E63 /* EstadoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AB74F219A8E49D00960E63 /* EstadoTableViewCell.m */; };
 		E4AB74F619A8E99200960E63 /* ColaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AB74F519A8E99200960E63 /* ColaTableViewCell.m */; };
+		E4AB74FA19A90CC100960E63 /* thunbs_down-32.png in Resources */ = {isa = PBXBuildFile; fileRef = E4AB74F919A90CC100960E63 /* thunbs_down-32.png */; };
+		E4AB74FC19A90CD700960E63 /* thunbs_up-32.png in Resources */ = {isa = PBXBuildFile; fileRef = E4AB74FB19A90CD700960E63 /* thunbs_up-32.png */; };
+		E4AB74FF19A9146800960E63 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AB74FE19A9146800960E63 /* InfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,10 @@
 		E4AB74F219A8E49D00960E63 /* EstadoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstadoTableViewCell.m; sourceTree = "<group>"; };
 		E4AB74F419A8E99200960E63 /* ColaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColaTableViewCell.h; sourceTree = "<group>"; };
 		E4AB74F519A8E99200960E63 /* ColaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColaTableViewCell.m; sourceTree = "<group>"; };
+		E4AB74F919A90CC100960E63 /* thunbs_down-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thunbs_down-32.png"; path = "../../../../../../Desktop/thunbs_down/thunbs_down-32.png"; sourceTree = "<group>"; };
+		E4AB74FB19A90CD700960E63 /* thunbs_up-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thunbs_up-32.png"; sourceTree = "<group>"; };
+		E4AB74FD19A9146800960E63 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		E4AB74FE19A9146800960E63 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +204,8 @@
 		E4793BF719A8CAF5001BE0C9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E4AB74FB19A90CD700960E63 /* thunbs_up-32.png */,
+				E4AB74F919A90CC100960E63 /* thunbs_down-32.png */,
 				E4793BF819A8CAF5001BE0C9 /* profile.png */,
 				E4793BF919A8CAF5001BE0C9 /* profile_empty.png */,
 			);
@@ -206,14 +215,16 @@
 		E4793BFC19A8CB28001BE0C9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E4793BFD19A8CB46001BE0C9 /* ViewController.h */,
-				E4793BFE19A8CB46001BE0C9 /* ViewController.m */,
-				E4793C0819A8D0DC001BE0C9 /* EstadosTableViewController.h */,
-				E4793C0919A8D0DC001BE0C9 /* EstadosTableViewController.m */,
-				E4793C0B19A8D351001BE0C9 /* ColaTableViewController.h */,
-				E4793C0C19A8D351001BE0C9 /* ColaTableViewController.m */,
 				E4793C0E19A8D3FF001BE0C9 /* CandidatoViewController.h */,
 				E4793C0F19A8D3FF001BE0C9 /* CandidatoViewController.m */,
+				E4793C0B19A8D351001BE0C9 /* ColaTableViewController.h */,
+				E4793C0C19A8D351001BE0C9 /* ColaTableViewController.m */,
+				E4793C0819A8D0DC001BE0C9 /* EstadosTableViewController.h */,
+				E4793C0919A8D0DC001BE0C9 /* EstadosTableViewController.m */,
+				E4AB74FD19A9146800960E63 /* InfoViewController.h */,
+				E4AB74FE19A9146800960E63 /* InfoViewController.m */,
+				E4793BFD19A8CB46001BE0C9 /* ViewController.h */,
+				E4793BFE19A8CB46001BE0C9 /* ViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -323,7 +334,9 @@
 				E43A43E419A8C4E300921821 /* InfoPlist.strings in Resources */,
 				E4793BFB19A8CAF5001BE0C9 /* profile_empty.png in Resources */,
 				E43A43ED19A8C4E300921821 /* Main.storyboard in Resources */,
+				E4AB74FC19A90CD700960E63 /* thunbs_up-32.png in Resources */,
 				E4793BFA19A8CAF5001BE0C9 /* profile.png in Resources */,
+				E4AB74FA19A90CC100960E63 /* thunbs_down-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +390,7 @@
 			files = (
 				E4793C0D19A8D351001BE0C9 /* ColaTableViewController.m in Sources */,
 				E4AB74F319A8E49D00960E63 /* EstadoTableViewCell.m in Sources */,
+				E4AB74FF19A9146800960E63 /* InfoViewController.m in Sources */,
 				E4793C0419A8CD6C001BE0C9 /* AlertsUtil.m in Sources */,
 				E4793C1019A8D3FF001BE0C9 /* CandidatoViewController.m in Sources */,
 				E4793C0A19A8D0DC001BE0C9 /* EstadosTableViewController.m in Sources */,

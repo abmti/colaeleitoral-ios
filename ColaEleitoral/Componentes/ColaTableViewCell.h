@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSString *cargoId;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;
+@property (weak, nonatomic) IBOutlet UILabel *labelNumero;
+@property (weak, nonatomic) IBOutlet UILabel *labelPartido;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCandidato;
 
 @end
