@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1F6C1854-794B-4335-96A1-C394D7C553B4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ColaEleitoral</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F96F2A60-74A7-4E1A-99DC-907C77069D63</key>
+		<string>https://github.com/abmti/colaeleitoral-ios</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ColaEleitoral.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F96F2A60-74A7-4E1A-99DC-907C77069D63</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/abmti/colaeleitoral-ios</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F96F2A60-74A7-4E1A-99DC-907C77069D63</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F96F2A60-74A7-4E1A-99DC-907C77069D63</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ColaEleitoral</string>
+		</dict>
+	</array>
+</dict>
+</plist>
