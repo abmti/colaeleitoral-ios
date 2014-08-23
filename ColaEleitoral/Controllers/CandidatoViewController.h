@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlertsUtil.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 
 @interface CandidatoViewController : UIViewController
+
+@property (nonatomic, strong) AlertsUtil * alert;
 
 @property NSString *colaId;
 @property NSString *estado;

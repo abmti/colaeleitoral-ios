@@ -32,6 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.alert = [[AlertsUtil alloc]initWithView:self.view];
     
     // Swipe Left
     UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
@@ -108,6 +109,7 @@
 {
     NSLog(@"Left");
     [self exibirProximo];
+    
 }
 
 -(void)swiperight:(UISwipeGestureRecognizer*)gestureRecognizer
@@ -121,7 +123,7 @@
     [httpConnection callGetMethod:url options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSLog(@"sucesso");
-         
+         [self.alert exibirAlertaBottom:@"Adicionado a cola com sucesso." error:NO duracao:3];
          [self exibirProximo];
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)

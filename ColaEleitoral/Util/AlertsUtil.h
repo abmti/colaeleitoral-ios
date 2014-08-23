@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MBProgressHUD.h"
+#import "ZAActivityBar.h"
 
 @interface AlertsUtil : NSObject<MBProgressHUDDelegate>
 
@@ -20,6 +21,7 @@
 -(void) ocultarModalAguarde;
 -(void) removerModalAguarde;
 -(void) exibirAlertaError:(NSString *)msg;
-
+-(void) exibirAlertaBottom:(NSString *)msg error:(BOOL)error duracao:(int)duracao;
+-(void) exibirAlertaTabBar:(NSString *)msg error:(BOOL)error duracao:(int)duracao;
 
 @end

@@ -62,6 +62,33 @@
     [error show];
 }
 
+-(void)exibirAlertaBottom:(NSString *)msg error:(BOOL)error duracao:(int)duracao
+{
+    [ZAActivityBar setLocationBottom];
+    if (error)
+    {
+        [ZAActivityBar showErrorWithStatus:msg duration:duracao];
+    }
+    else
+    {
+        [ZAActivityBar showSuccessWithStatus:msg duration:duracao];
+    }
+}
+
+-(void)exibirAlertaTabBar:(NSString *)msg error:(BOOL)error duracao:(int)duracao
+{
+    [ZAActivityBar setLocationTabBar];
+    if (error)
+    {
+        [ZAActivityBar showErrorWithStatus:msg duration:duracao];
+    }
+    else
+    {
+        [ZAActivityBar showSuccessWithStatus:msg duration:duracao];
+    }
+}
+
+
 
 #pragma mark MBProgressHUDDelegate methods
 
