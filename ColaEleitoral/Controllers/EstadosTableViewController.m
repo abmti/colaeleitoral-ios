@@ -7,6 +7,9 @@
 //
 
 #import "EstadosTableViewController.h"
+#import "HttpConnection.h"
+#import "ColaTableViewController.h"
+#import "EstadoTableViewCell.h"
 
 @interface EstadosTableViewController () {
     
@@ -39,10 +42,21 @@
     
     estados = [[NSMutableArray alloc] init];
     
-    [estados addObject:@{@"sigla":@"DF", @"nome":@"Distrito Federal"}];
-    [estados addObject:@{@"sigla":@"SP", @"nome":@"São Paulo"}];
+    //[estados addObject:@{@"sigla":@"DF", @"nome":@"Distrito Federal"}];
+    //[estados addObject:@{@"sigla":@"SP", @"nome":@"São Paulo"}];
+
+    HttpConnection *httpConnection = [[HttpConnection alloc] initWithView:self.view];
     
-    [self.tableView reloadData];
+    [httpConnection callGetMethod:URL_ESTADOS options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"sucesso");
+        estados = responseObject;
+        [self.tableView reloadData];
+         
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }];
     
 }
 
@@ -66,11 +80,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    EstadoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
     NSDictionary *estado = [estados objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [estado objectForKey:@"nome"];
+    cell.estado = [estado objectForKey:@"sigla"];
+    cell.labelNome.text = [estado objectForKey:@"nome"];
+    [cell.bandeira setImageWithURL:[estado objectForKey:@"bandeira"] placeholderImage:[UIImage imageNamed:@"ic_avatar"]];
     
     return cell;
 }
@@ -114,15 +130,19 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"segueCola"]) {
+        EstadoTableViewCell *cell = (EstadoTableViewCell*) sender;
+        ColaTableViewController *ctvc = (ColaTableViewController*) segue.destinationViewController;
+        ctvc.estado = cell.estado;
+    }
+    
 }
-*/
+
 
 @end

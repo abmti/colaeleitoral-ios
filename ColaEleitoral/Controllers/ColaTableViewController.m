@@ -7,6 +7,7 @@
 //
 
 #import "ColaTableViewController.h"
+#import "HttpConnection.h"
 
 @interface ColaTableViewController ()
 
@@ -33,11 +34,41 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    _cargos = [[NSMutableArray alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     
-    [_cargos addObject:@{@"id":@"1", @"nome_cargo":@"Presidente"}];
+    [super viewWillAppear:animated];
     
-    [self.tableView reloadData];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [ud objectForKey:@"deviceid"];
+    
+    HttpConnection *httpConnection = [[HttpConnection alloc] initWithView:self.view];
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@", URL_COLA, _estado, uid];
+    [httpConnection callGetMethod:url options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         
+         _cargos = [[NSMutableArray alloc]init];
+         
+         for(NSDictionary *c in [responseObject objectForKey:@"cola_cargo"]) {
+             NSMutableDictionary *cargo = [c mutableCopy];
+             [cargo setObject:[[c objectForKey:@"candidatos"] mutableCopy] forKey:@"candidatos"];
+             [_cargos addObject:[cargo mutableCopy]];
+         }
+         
+         _colaId = [(NSDictionary*)[responseObject objectForKey:@"_id"] objectForKey:@"$oid"];
+         
+         [ud setObject:_estado forKey:@"estado"];
+         [ud setObject:_colaId forKey:@"colaId"];
+         [ud synchronize];
+         
+         [self.tableView reloadData];
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"Error: %@", [error localizedDescription]);
+     }];
     
 }
 
@@ -51,12 +82,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [_cargos count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_cargos count];
+    NSArray *candidatos = [(NSDictionary*)[_cargos objectAtIndex:section] objectForKey:@"candidatos"];
+    if ([candidatos count] == 0) {
+        return 1;
+    }
+    return [candidatos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,6 +103,17 @@
     cell.textLabel.text = [cargo objectForKey:@"nome_cargo"];
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSDictionary *cargo = [_cargos objectAtIndex:section];
+    return [cargo objectForKey:@"nome_cargo"];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 35;
 }
 
 /*

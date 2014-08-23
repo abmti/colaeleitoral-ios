@@ -29,6 +29,8 @@
 		E4793C0A19A8D0DC001BE0C9 /* EstadosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4793C0919A8D0DC001BE0C9 /* EstadosTableViewController.m */; };
 		E4793C0D19A8D351001BE0C9 /* ColaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4793C0C19A8D351001BE0C9 /* ColaTableViewController.m */; };
 		E4793C1019A8D3FF001BE0C9 /* CandidatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4793C0F19A8D3FF001BE0C9 /* CandidatoViewController.m */; };
+		E4AB74F319A8E49D00960E63 /* EstadoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AB74F219A8E49D00960E63 /* EstadoTableViewCell.m */; };
+		E4AB74F619A8E99200960E63 /* ColaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4AB74F519A8E99200960E63 /* ColaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,10 @@
 		E4793C0C19A8D351001BE0C9 /* ColaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColaTableViewController.m; sourceTree = "<group>"; };
 		E4793C0E19A8D3FF001BE0C9 /* CandidatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandidatoViewController.h; sourceTree = "<group>"; };
 		E4793C0F19A8D3FF001BE0C9 /* CandidatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandidatoViewController.m; sourceTree = "<group>"; };
+		E4AB74F119A8E49D00960E63 /* EstadoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstadoTableViewCell.h; sourceTree = "<group>"; };
+		E4AB74F219A8E49D00960E63 /* EstadoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstadoTableViewCell.m; sourceTree = "<group>"; };
+		E4AB74F419A8E99200960E63 /* ColaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColaTableViewCell.h; sourceTree = "<group>"; };
+		E4AB74F519A8E99200960E63 /* ColaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,7 @@
 		E43A43DF19A8C4E300921821 /* ColaEleitoral */ = {
 			isa = PBXGroup;
 			children = (
+				E4AB74F019A8E46700960E63 /* Componentes */,
 				E4793C0019A8CC9F001BE0C9 /* Util */,
 				E4793BFC19A8CB28001BE0C9 /* Controllers */,
 				E43A43E819A8C4E300921821 /* AppDelegate.h */,
@@ -221,6 +228,17 @@
 				E4793C0619A8CD97001BE0C9 /* HttpConnection.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		E4AB74F019A8E46700960E63 /* Componentes */ = {
+			isa = PBXGroup;
+			children = (
+				E4AB74F119A8E49D00960E63 /* EstadoTableViewCell.h */,
+				E4AB74F219A8E49D00960E63 /* EstadoTableViewCell.m */,
+				E4AB74F419A8E99200960E63 /* ColaTableViewCell.h */,
+				E4AB74F519A8E99200960E63 /* ColaTableViewCell.m */,
+			);
+			path = Componentes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,12 +376,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4793C0D19A8D351001BE0C9 /* ColaTableViewController.m in Sources */,
+				E4AB74F319A8E49D00960E63 /* EstadoTableViewCell.m in Sources */,
 				E4793C0419A8CD6C001BE0C9 /* AlertsUtil.m in Sources */,
 				E4793C1019A8D3FF001BE0C9 /* CandidatoViewController.m in Sources */,
 				E4793C0A19A8D0DC001BE0C9 /* EstadosTableViewController.m in Sources */,
 				E43A43EA19A8C4E300921821 /* AppDelegate.m in Sources */,
 				E4793BFF19A8CB46001BE0C9 /* ViewController.m in Sources */,
 				E4793C0719A8CD97001BE0C9 /* HttpConnection.m in Sources */,
+				E4AB74F619A8E99200960E63 /* ColaTableViewCell.m in Sources */,
 				E43A43E619A8C4E300921821 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

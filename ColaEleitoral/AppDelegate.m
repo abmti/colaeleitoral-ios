@@ -13,6 +13,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    if([ud objectForKey:@"deviceid"] == nil) {
+        NSString *idfv = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        [ud setObject:idfv forKey:@"deviceid"];
+        [ud synchronize];
+        NSLog(@"%@", idfv);
+    }
+    
     return YES;
 }
 							

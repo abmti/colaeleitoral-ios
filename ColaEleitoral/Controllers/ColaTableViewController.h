@@ -10,6 +10,8 @@
 
 @interface ColaTableViewController : UITableViewController
 
-@property NSMutableArray *cargos;
+@property(strong, nonatomic) NSString *estado;
+@property(strong, nonatomic) NSString *colaId;
+@property(strong, nonatomic) NSMutableArray *cargos;
 
 @end
