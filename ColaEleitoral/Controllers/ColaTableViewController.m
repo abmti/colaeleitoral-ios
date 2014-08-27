@@ -118,7 +118,7 @@
         cell.labelNome.text = [candidato objectForKey:@"apelido"];
         cell.labelNumero.text = [candidato objectForKey:@"numero"];
         cell.labelPartido.text = [candidato objectForKey:@"partido"];
-        [cell.imgCandidato setImageWithURL:[candidato objectForKey:@"foto"] placeholderImage:[UIImage imageNamed:@"ic_avatar"]];
+        [cell.imgCandidato setImageWithURL:[candidato objectForKey:@"foto"] placeholderImage:[UIImage imageNamed:@"profile.png"]];
         
     }
     

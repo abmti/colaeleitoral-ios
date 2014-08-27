@@ -1,0 +1,48 @@
+
+/* Class = "IBUILabel"; text = "<<<"; ObjectID = "0LE-Dw-og1"; */
+"0LE-Dw-og1.text" = "<<<";
+
+/* Class = "IBUIButton"; normalTitle = "+ Informações"; ObjectID = "0du-Ia-dyd"; */
+"0du-Ia-dyd.normalTitle" = "+ Informações";
+
+/* Class = "IBUITextField"; placeholder = "Partido Opcional"; ObjectID = "0tr-eY-h0K"; */
+"0tr-eY-h0K.placeholder" = "Partido Opcional";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "1on-29-3TC"; */
+"1on-29-3TC.text" = "Label";
+
+/* Class = "IBUIButton"; normalTitle = "Começar"; ObjectID = "3N3-jM-pj5"; */
+"3N3-jM-pj5.normalTitle" = "Começar";
+
+/* Class = "IBUILabel"; text = "Apelido:"; ObjectID = "6i6-oU-dRf"; */
+"6i6-oU-dRf.text" = "Apelido:";
+
+/* Class = "IBUILabel"; text = "Partido:"; ObjectID = "HlM-Nl-4ty"; */
+"HlM-Nl-4ty.text" = "Partido:";
+
+/* Class = "IBUILabel"; text = "Cargo:"; ObjectID = "KVq-1R-g7p"; */
+"KVq-1R-g7p.text" = "Cargo:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "To1-N5-r5A"; */
+"To1-N5-r5A.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Biografia:"; ObjectID = "Tol-pf-mSx"; */
+"Tol-pf-mSx.text" = "Biografia:";
+
+/* Class = "IBUILabel"; text = ">>>"; ObjectID = "gVg-BZ-yuh"; */
+"gVg-BZ-yuh.text" = ">>>";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "k2J-eG-9HL"; */
+"k2J-eG-9HL.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "k7x-Pj-hae"; */
+"k7x-Pj-hae.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Nome:"; ObjectID = "nBt-YD-btl"; */
+"nBt-YD-btl.text" = "Nome:";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "w47-yi-kcv"; */
+"w47-yi-kcv.text" = "Label";
+
+/* Class = "IBUINavigationItem"; title = "Eleições 2014"; ObjectID = "yCp-EI-JT3"; */
+"yCp-EI-JT3.title" = "Eleições 2014";

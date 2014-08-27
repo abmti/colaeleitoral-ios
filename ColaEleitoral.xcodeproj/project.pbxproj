@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B491E1152F64DF4A83A339C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8805E0EB45CB49038EADCAC3 /* libPods.a */; };
+		E4053D3219AD21E4008B8091 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = E4053D3119AD21E4008B8091 /* background.png */; };
+		E4053D3419AD2226008B8091 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E4053D3319AD2226008B8091 /* logo.png */; };
 		E43A43DA19A8C4E300921821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43A43D919A8C4E300921821 /* Foundation.framework */; };
 		E43A43DC19A8C4E300921821 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43A43DB19A8C4E300921821 /* CoreGraphics.framework */; };
 		E43A43DE19A8C4E300921821 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43A43DD19A8C4E300921821 /* UIKit.framework */; };
@@ -54,6 +56,11 @@
 /* Begin PBXFileReference section */
 		71E3043CE21C40EBBD5B8E2E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8805E0EB45CB49038EADCAC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4053D2E19AD0207008B8091 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		E4053D2F19AD0207008B8091 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4053D3019AD0207008B8091 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4053D3119AD21E4008B8091 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		E4053D3319AD2226008B8091 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E43A43D619A8C4E300921821 /* ColaEleitoral.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColaEleitoral.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43A43D919A8C4E300921821 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E43A43DB19A8C4E300921821 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -214,6 +221,8 @@
 		E4793BF719A8CAF5001BE0C9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E4053D3319AD2226008B8091 /* logo.png */,
+				E4053D3119AD21E4008B8091 /* background.png */,
 				E46AFCDE19A93A3D0000E0B6 /* logo_preta.png */,
 				E46AFCD619A937EA0000E0B6 /* google.jpg */,
 				E46AFCD719A937EA0000E0B6 /* pixidea.jpg */,
@@ -328,6 +337,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = E43A43CD19A8C4E300921821;
 			productRefGroup = E43A43D719A8C4E300921821 /* Products */;
@@ -347,7 +357,9 @@
 			files = (
 				E43A43F219A8C4E300921821 /* Images.xcassets in Resources */,
 				E43A43E419A8C4E300921821 /* InfoPlist.strings in Resources */,
+				E4053D3219AD21E4008B8091 /* background.png in Resources */,
 				E4793BFB19A8CAF5001BE0C9 /* profile_empty.png in Resources */,
+				E4053D3419AD2226008B8091 /* logo.png in Resources */,
 				E43A43ED19A8C4E300921821 /* Main.storyboard in Resources */,
 				E46AFCDB19A937EA0000E0B6 /* pixidea.jpg in Resources */,
 				E46AFCDF19A93A3D0000E0B6 /* logo_preta.png in Resources */,
@@ -445,6 +457,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E43A43E319A8C4E300921821 /* en */,
+				E4053D2F19AD0207008B8091 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -453,6 +466,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E43A43EC19A8C4E300921821 /* Base */,
+				E4053D2E19AD0207008B8091 /* pt */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -461,6 +475,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E43A440219A8C4E400921821 /* en */,
+				E4053D3019AD0207008B8091 /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

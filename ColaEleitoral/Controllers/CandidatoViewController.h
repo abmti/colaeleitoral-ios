@@ -13,7 +13,7 @@
 #import "IQDropDownTextField.h"
 #import "IQUIView+IQKeyboardToolbar.h"
 
-@interface CandidatoViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
+@interface CandidatoViewController : UIViewController
 
 @property (nonatomic, strong) AlertsUtil * alert;
 
@@ -25,6 +25,8 @@
 @property NSInteger cargoId;
 @property (strong, nonatomic) NSMutableArray *candidatos;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+@property (weak, nonatomic) IBOutlet UIView *viewCandidato;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCandidato;
 @property (weak, nonatomic) IBOutlet UILabel *labelApelido;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;
