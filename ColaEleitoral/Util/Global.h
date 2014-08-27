@@ -7,6 +7,7 @@
 
 #define URL_BASE @"http://colaeleitoral.pixidea.com.br" //Produção
 //#define URL_BASE @"http://192.168.25.9:3000" //Michel
+//#define URL_BASE @"http://192.168.25.4:3000" //Adriano
 //#define URL_BASE @"http://localhost:3000" //Local
 
 #define URL_ESTADOS [NSString stringWithFormat:@"%@%@",URL_BASE, @"/estados"]

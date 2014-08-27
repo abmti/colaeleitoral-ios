@@ -37,31 +37,28 @@
     
     self.alert = [[AlertsUtil alloc]initWithView:self.view];
     
-    [self addGestures];
-    
     //[self.imgCandidato setImageWithURL:[candidato objectForKey:@"url_foto"] placeholderImage:[UIImage imageNamed:@"ic_avatar"]];
     self.imgCandidato.layer.cornerRadius = self.imgCandidato.frame.size.width / 2;
     self.imgCandidato.clipsToBounds = YES;
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
-    
     HttpConnection *httpConnection = [[HttpConnection alloc] initWithView:self.view];
     [httpConnection callGetMethod:URL_PARTIDOS options:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"sucesso");
+    {
+        NSLog(@"sucesso");
          
-         [_partidoField addDoneOnKeyboardWithTarget:self action:@selector(doneAction:) shouldShowPlaceholder:YES];
+        [_partidoField addDoneOnKeyboardWithTarget:self action:@selector(doneAction:) shouldShowPlaceholder:YES];
          
-         _partidos = responseObject;
-         [_partidoField setItemListDictionary:_partidos optsKey:@"partidoId" optsLabel:@"sigla" optsSelecione:YES];
+        _partidos = responseObject;
+        [_partidoField setItemListDictionary:_partidos optsKey:@"partidoId" optsLabel:@"sigla" optsSelecione:YES];
+        
+        [self carregarCandidatos];
+        [self addGestures];
          
-         
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         NSLog(@"Error: %@", [error localizedDescription]);
-     }];
-    
-    [self carregarCandidatos];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }];
     
 }
 
@@ -109,6 +106,7 @@
 - (void) exibirCandidato
 {
     NSDictionary *candidato = [_candidatos objectAtIndex:index];
+    _labelNumero.text = [candidato objectForKey:@"numero"];
     _labelApelido.text = [candidato objectForKey:@"apelido"];
     _labelNome.text = [candidato objectForKey:@"nome"];
     _labelCargo.text = [candidato objectForKey:@"cargo"];
@@ -116,14 +114,14 @@
     
     [self.imgCandidato setImageWithURL:[candidato objectForKey:@"foto"] placeholderImage:[UIImage imageNamed:@"profile.png"]];
     
-    CGRect frame2 = self.view.frame;
+    CGRect frame2 = self.viewCandidato.frame;
     frame2.origin.x = 0;
     
-    [UIView animateWithDuration:0.33f
+    [UIView animateWithDuration:0.2f
                           delay:0.0f
                         options:UIViewAnimationOptionTransitionFlipFromRight
                      animations:^{
-                         [self.view setFrame:frame2];
+                         [self.viewCandidato setFrame:frame2];
                      }
                      completion:^(BOOL finished){
                          // do whatever post processing you want (such as resetting what is "current" and what is "next")
@@ -157,19 +155,19 @@
 {
     NSLog(@"Left");
     
-    CGRect frame = self.view.frame;
+    CGRect frame = self.viewCandidato.frame;
     frame.origin.x = -320;
-    [UIView animateWithDuration:0.5f
+    [UIView animateWithDuration:0.2f
                           delay:0.0f
                         options:UIViewAnimationOptionTransitionFlipFromLeft
                      animations:^{
-                         [self.view setFrame:frame];
+                         [self.viewCandidato setFrame:frame];
                      }
                      completion:^(BOOL finished){
                          
-                         CGRect frame2 = self.view.frame;
+                         CGRect frame2 = self.viewCandidato.frame;
                          frame2.origin.x = 320;
-                         self.view.frame = frame2;
+                         self.viewCandidato.frame = frame2;
                          [self exibirProximo];
                      }];
     
@@ -178,18 +176,18 @@
 -(void)swiperight:(UISwipeGestureRecognizer*)gestureRecognizer
 {
     NSLog(@"Right");
-    CGRect frame = self.view.frame;
+    CGRect frame = self.viewCandidato.frame;
     frame.origin.x = 320;
-    [UIView animateWithDuration:0.5f
+    [UIView animateWithDuration:0.3f
                           delay:0.0f
                         options:UIViewAnimationOptionTransitionFlipFromLeft
                      animations:^{
-                         [self.view setFrame:frame];
+                         [self.viewCandidato setFrame:frame];
                      }
                      completion:^(BOOL finished){
-                         CGRect frame2 = self.view.frame;
+                         CGRect frame2 = self.viewCandidato.frame;
                          frame2.origin.x = 320;
-                         self.view.frame = frame2;
+                         self.viewCandidato.frame = frame2;
                          [self completeRight];
                      }];
     

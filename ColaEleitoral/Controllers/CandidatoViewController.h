@@ -18,15 +18,15 @@
 @property (nonatomic, strong) AlertsUtil * alert;
 
 @property NSMutableArray *partidos;
-@property (weak, nonatomic) IBOutlet IQDropDownTextField *partidoField;
-
 @property NSString *colaId;
 @property NSString *estado;
 @property NSInteger cargoId;
 @property (strong, nonatomic) NSMutableArray *candidatos;
 
+@property (weak, nonatomic) IBOutlet IQDropDownTextField *partidoField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property (weak, nonatomic) IBOutlet UIView *viewCandidato;
+@property (weak, nonatomic) IBOutlet UILabel *labelNumero;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCandidato;
 @property (weak, nonatomic) IBOutlet UILabel *labelApelido;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;
